@@ -48,9 +48,8 @@ def KingQueen(deck):
     for i in range(n-1):
         if deck[i][0] + deck[i+1][0] in ['KQ', 'QK']:
             return True
-        if i!=n-2:
-            if deck[i][0] + deck[i+2][0] in ['KQ', 'QK']:
-                return True
+        if i != n - 2 and deck[i][0] + deck[i + 2][0] in ['KQ', 'QK']:
+            return True
 
 def MonteCarlo2(n):
     res = 0

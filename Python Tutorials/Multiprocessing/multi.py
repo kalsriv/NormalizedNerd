@@ -2,15 +2,11 @@ import multiprocessing
 import  time
 
 def counter1(num):
-    cnt = 0
-    for _ in range(num):
-        cnt += 1
+    cnt = len(range(num))
     print("counter1 done!")
 
 def counter2(num):
-    cnt = 0
-    for _ in range(0, num, 2):
-        cnt += 1
+    cnt = len(range(0, num, 2))
     print("counter2 done!")
 
 if __name__ == "__main__":
