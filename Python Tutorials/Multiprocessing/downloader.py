@@ -29,22 +29,18 @@ def download(url_list):
     for url in url_list:
         response = requests.get(url)
         file_name = url.split('/')[-1]
-        file = open('images/'+file_name, "wb")
-        file.write(response.content)
-        file.close()
-
-        image = Image.open('images/'+file_name)
+        with open(f'images/{file_name}', "wb") as file:
+            file.write(response.content)
+        image = Image.open(f'images/{file_name}')
         image = image.convert('L')
-        image.save('images/'+file_name)
+        image.save(f'images/{file_name}')
         print(file_name, "DONE!")
 
 def download_multi(url, dir_path=None):
     response = requests.get(url)
     file_name = url.split('/')[-1]
-    file = open(dir_path+file_name, "wb")
-    file.write(response.content)
-    file.close()
-
+    with open(dir_path+file_name, "wb") as file:
+        file.write(response.content)
     image = Image.open(dir_path+file_name)
     image = image.convert('L')
     image.save(dir_path+file_name)
